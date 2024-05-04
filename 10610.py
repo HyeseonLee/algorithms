@@ -2,7 +2,6 @@ import sys
 
     
 def solution():
-    res = 0
     num = sys.stdin.readline().strip()
     num_arr = [int(num) for num in num]
     num_arr.sort(reverse=True) #O(5)
