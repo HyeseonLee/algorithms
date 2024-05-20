@@ -24,7 +24,10 @@ def solution():
         ans = sol(n)
         answer.append(ans)
 
-    return print(**answer)
+    for item in answer:
+        print(item)
+    
+    return None
 
 if __name__ == "__main__":
     solution()
