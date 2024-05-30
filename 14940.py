@@ -2,9 +2,9 @@ import sys
 from collections import deque
 
 def solution():
-    def bfs(start_y, start_x):
-        q = deque([(start_y, start_x)])
-        res[start_y][start_x] = 0
+    def bfs(y, x):
+        q = deque([(y, x)])
+        res[y][x] = 0
         
         dy = [0, 0, 1, -1]
         dx = [1, -1, 0, 0]
@@ -24,21 +24,21 @@ def solution():
     graph = [list(map(int, sys.stdin.readline().strip().split())) for _ in range(n)]
     res = [[-1] * m for _ in range(n)]
 
-    start_y, start_x = None, None
-    for y in range(n):
-        for x in range(m):
-            if graph[y][x] == 2:
-                start_y, start_x = y, x
+
+    for i in range(n):
+        for j in range(m):
+            if graph[i][j] == 2:
+                y, x = i, j
                 break
-        if start_y is not None:
+        if y is not None:
             break
 
-    bfs(start_y, start_x)
+    bfs(y, x)
 
-    for y in range(n):
-        for x in range(m):
-            if graph[y][x] == 0:
-                res[y][x] = 0
+    for i in range(n):
+        for j in range(m):
+            if graph[i][j] == 0:
+                res[i][j] = 0
 
     for item in res:
         print(' '.join(map(str, item)))
